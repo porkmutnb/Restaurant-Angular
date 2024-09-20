@@ -1,0 +1,43 @@
+<div>
+    <div style="display: inline-block; width: 15%;">
+        <p><strong>Order:</strong></p>
+    </div>
+    <div style="display: inline-block; width: 70%;">
+        <a style="cursor: pointer;">Order</a> &nbsp;
+    </div>
+    <div style="display: inline-block; width: 15%;">
+        <button (click)="onCreate()">Create Order</button>
+    </div>
+</div>
+<div style="display: grid;">
+    <table border="1">
+        <tr>
+            <th width="5%">id</th>
+            <th width="10%">fullname</th>
+            <th width="10%">serveTableName</th>
+            <th width="5%">guest</th>
+            <th width="10%">status</th>
+            <th width="30%">menu</th>
+            <th width="30%"></th>
+        </tr>
+        <tr *ngFor="let item of orderList">
+            <td>{{ item.orderId }}</td>
+            <td>{{ item.fullname }}</td>
+            <td>{{ item.serveTableName }}</td>
+            <td>{{ item.guest }}</td>
+            <td>{{ item.status }}</td>
+            <td>
+                <table>
+                    <tr *ngFor="let menu of item.menuList">
+                        <td>{{ menu.menuName }}</td>
+                        <td><img *ngIf="menu.menuImage!=''" [src]="menu.menuImage" width="50%"></td>
+                        <td>{{ menu.qty }}</td>
+                    </tr>
+                </table>
+            </td>
+            <td align="right">
+                <a (click)="onEdit(item.orderId)" style="cursor: pointer;">Edit</a> &nbsp;
+            </td>
+        </tr>
+    </table>
+</div>

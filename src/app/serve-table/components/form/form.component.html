@@ -1,0 +1,25 @@
+<div>
+    <div style="display: inline-block; width: 15%;">
+        <p><strong>ServeTable:</strong></p>
+    </div>
+    <div style="display: inline-block; width: 70%;">
+        <a style="cursor: pointer;">ServeTable</a> &nbsp; > &nbsp; <a style="cursor: pointer;" [innerText]="id==null || id=='' ? 'New ServeTable' : id"></a>
+    </div>
+    <div style="display: inline-block; width: 15%;">
+        <button (click)="onSubmit()" [innerText]="id==null||id=='' ? 'Create ServeTable' : 'Update ServeTable'"></button>
+    </div>
+</div>
+<div>
+    <div style="display: inline-block;">
+        id &nbsp;
+        <input type="text" [(ngModel)]="serveTable.id" [value]="serveTable.id" [ngModelOptions]="{ standalone: true }" readonly>
+    </div>
+    <div style="display: inline-block;">
+        name &nbsp;
+        <input type="text" [(ngModel)]="serveTable.name" [value]="serveTable.name" [ngModelOptions]="{ standalone: true }">
+    </div>
+    <div style="display: inline-block;">
+        seat &nbsp;
+        <input type="number" [(ngModel)]="serveTable.seat" [value]="serveTable.seat" [ngModelOptions]="{ standalone: true }">
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div>
+    <div style="display: inline-block; width: 15%;">
+        <p><strong>Order:</strong></p>
+    </div>
+    <div style="display: inline-block; width: 70%;">
+        <a style="cursor: pointer;">ServeTable</a> &nbsp; > &nbsp; <a style="cursor: pointer;" [innerText]="id==null || id=='' ? 'New Order' : id"></a>
+    </div>
+    <div style="display: inline-block; width: 15%;">
+        <button (click)="onSubmit()" [innerText]="id==null||id=='' ? 'Create Order' : 'Update Order'"></button>
+    </div>
+</div>
+<div>
+    <div style="display: inline-block;">
+        id &nbsp;
+        <input type="text" [(ngModel)]="order.orderId" [value]="order.orderId" [ngModelOptions]="{ standalone: true }" readonly>
+    </div>
+    <div style="display: inline-block;">
+        fullname &nbsp;
+        <input type="text" [(ngModel)]="order.fullname" [value]="order.fullname" [ngModelOptions]="{ standalone: true }">
+    </div>
+    <div style="display: inline-block;">
+        status &nbsp;
+        <select [(ngModel)]="order.status" [value]="order.status">
+            <option *ngFor="let statusOrder of statusOrderList" [value]="statusOrder.value">{{ statusOrder.value }}</option>
+        </select>
+    </div>
+    <div style="display: inline-block;">
+        guest &nbsp;
+        <input type="number" [(ngModel)]="order.guest" [value]="order.guest" [ngModelOptions]="{ standalone: true }" readonly>
+    </div>
+    <div style="display: inline-block;">
+        serveTableName &nbsp;
+        <input type="text" *ngIf="id!=null&&id!=''" [(ngModel)]="order.serveTableName" [value]="order.serveTableName" [ngModelOptions]="{ standalone: true }" readonly>
+        <select *ngIf="id==null||id==''" [(ngModel)]="order.serveTableId" [value]="order.serveTableId">
+            <option value="">==Please select==</option>
+            <option *ngFor="let serveTable of serveTableList" value="{{serveTable.id}}">{{ serveTable.name }}</option>
+        </select>
+    </div>
+    <div style="margin-top: 15px; display: inline-block;" *ngFor="let menu of order.menuList">
+        menuName &nbsp;
+        {{ menu.menuName }} &nbsp;
+        <img *ngIf="menu.menuImage!=null&&menu.menuImage!=''" [src]="menu.menuImage" width="5%"> &nbsp;
+        qty &nbsp;
+        {{ menu.qty }}
+    </div>
+</div>

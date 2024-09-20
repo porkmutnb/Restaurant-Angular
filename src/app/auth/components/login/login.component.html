@@ -1,0 +1,18 @@
+<div style="padding: 15px;">
+    <h2>Login</h2>
+    <hr/>
+    <form>
+        <div style="padding: 15px;">
+            <label for="username"><strong>Username</strong></label>
+            <input type="text" [(ngModel)]="formData.username" [ngModelOptions]="{ standalone: true }">
+        </div>
+        <div style="padding: 15px;">
+            <label for="password"><strong>Password</strong></label>
+            <input type="password" [(ngModel)]="formData.password" [ngModelOptions]="{ standalone: true }">
+        </div>
+        <div style="padding: 15px;">
+            <button type="submit" (click)="onLogin()"><strong>Login</strong></button> &nbsp;
+            <a style="cursor: pointer;" (click)="onRegister()">Register</a>
+        </div>
+    </form>
+</div>

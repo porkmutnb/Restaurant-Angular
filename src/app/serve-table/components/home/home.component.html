@@ -1,0 +1,30 @@
+<div>
+    <div style="display: inline-block; width: 15%;">
+        <p><strong>ServeTable:</strong>{{ serveTableList.length }}</p>
+    </div>
+    <div style="display: inline-block; width: 70%;">
+        <a style="cursor: pointer;">ServeTable</a> &nbsp;
+    </div>
+    <div style="display: inline-block; width: 15%;">
+        <button (click)="onCreate()">Create ServeTable</button>
+    </div>
+</div>
+<div style="display: grid;">
+    <table border="1">
+        <tr>
+            <th width="20%">id</th>
+            <th width="20%">name</th>
+            <th width="20%">seat</th>
+            <th width="40%"></th>
+        </tr>
+        <tr *ngFor="let item of serveTableList">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.seat }}</td>
+            <td align="right">
+                <a (click)="onEdit(item.id)" style="cursor: pointer;">Edit</a> &nbsp;
+                <a (click)="onDelete(item.id)" style="cursor: pointer;">Delete</a> &nbsp;
+            </td>
+        </tr>
+    </table>
+</div>

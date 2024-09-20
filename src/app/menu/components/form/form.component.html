@@ -1,0 +1,25 @@
+<div>
+    <div style="display: inline-block; width: 15%;">
+        <p><strong>Menu:</strong></p>
+    </div>
+    <div style="display: inline-block; width: 70%;">
+        <a style="cursor: pointer;">Menu</a> &nbsp; > &nbsp; <a style="cursor: pointer;" [innerText]="id==null || id=='' ? 'New Menu' : id"></a>
+    </div>
+    <div style="display: inline-block; width: 15%;">
+        <button (click)="onSubmit()" [innerText]="id==null||id=='' ? 'Create Menu' : 'Update Menu'"></button>
+    </div>
+</div>
+<div>
+    <div style="display: inline-block;">
+        id &nbsp;
+        <input type="text" [(ngModel)]="menu.id" [value]="menu.id" [ngModelOptions]="{ standalone: true }" readonly>
+    </div>
+    <div style="display: inline-block;">
+        name &nbsp;
+        <input type="text" [(ngModel)]="menu.name" [value]="menu.name" [ngModelOptions]="{ standalone: true }">
+    </div>
+    <div style="display: inline-block;">
+        image &nbsp;
+        <input type="text" [(ngModel)]="menu.image" [value]="menu.image" [ngModelOptions]="{ standalone: true }">
+    </div>
+</div>

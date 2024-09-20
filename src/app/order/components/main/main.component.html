@@ -1,0 +1,15 @@
+<div style="background-color: grey; height: 10%; padding: 15px;">
+    <div style="display: inline-block; width: 20%;">
+        <strong>Restaurant</strong>
+    </div>
+    <div style="display: inline-block; width: 70%;">
+        <a style="cursor: pointer;" (click)="onTab('Menu')"> Menu </a> |
+        <a style="cursor: pointer;" (click)="onTab('Order')"> Order </a> |
+        <a style="cursor: pointer;" (click)="onTab('ServeTable')"> ServeTable </a>
+    </div>
+    <div style="display: inline-block; width: 10%;">
+        <span [innerText]="name"></span> &nbsp;
+        <a (click)="onLogout()" style="cursor: pointer; text-align: right;">Logout</a>
+    </div>
+</div>
+<router-outlet/>
